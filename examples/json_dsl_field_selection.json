@@ -1,0 +1,8 @@
+{
+    "fields": ["name", "code", "population"],
+    "filters": {
+                "field": "population",
+                "value": 10000,
+                "predicate": "gt"
+                }
+    }
