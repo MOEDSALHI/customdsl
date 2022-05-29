@@ -35,3 +35,57 @@ def get_data(file):
     """
     with open(file) as data_file:
         return json.load(data_file)
+
+def get_data_field(file):
+    """this function retun data from JSON
+
+    Args:
+        file (string): path to json file
+
+    Returns:
+        JSON object: data
+    """
+    with open(file) as data_file:
+        return json.load(data_file)["fields"]
+
+
+def get_data_filter(file):
+    """this function retun data from JSON
+
+    Args:
+        file (string): path to json file
+
+    Returns:
+        JSON object: data
+    """
+    with open(file) as data_file:
+        return json.load(data_file)["filters"]
+
+def check_existing_field(field_name):
+    """this function is used to check existing field into SQL_TABLE_SCHEMA
+
+    Args:
+        field_name (string): the field name to check
+
+    Returns:
+        boolean: return true if field_name exist in SQL_TABLE_SCHEMA
+        else return false
+    """
+    for elt in SQL_TABLE_SCHEMA:
+        if elt["name"] == field_name:
+            return True
+    return False
+
+
+def get_type_field(field_name):
+    """this function is used to get type field
+
+    Args:
+        field_name (string): the field name to get here type
+
+    Returns:
+        string: the type of field_name
+    """
+    for elt in SQL_TABLE_SCHEMA:
+        if elt["name"] == field_name:
+            return elt["type"]
