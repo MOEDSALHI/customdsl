@@ -1,0 +1,17 @@
+{
+    "fields": ["name", "code", "population"],
+    "filters":  {
+                 "and": [
+                            {
+                                "field": "population",
+                                "value": 10000,
+                                "predicate": "gt"
+                            },
+                            {
+                                "field": "region_name",
+                                "value": "Hauts-de",
+                                "predicate": "contains"
+                            }
+                        ]
+                }
+}
